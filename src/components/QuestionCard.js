@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
-export const QuestionCard = props => (
+const QuestionCard = props => (
   <Card style={{ width: "100%" }}>
     <Card.Content>
       <Card.Header>{props.text.name}</Card.Header>
@@ -12,3 +12,5 @@ export const QuestionCard = props => (
     </Card.Content>
   </Card>
 );
+
+export default QuestionCard;

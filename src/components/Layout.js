@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import {
   Button,
   Container,
@@ -9,24 +9,24 @@ import {
   Responsive,
   Segment,
   Sidebar,
-  Visibility,
-} from 'semantic-ui-react'
+  Visibility
+} from "semantic-ui-react";
 
 const getWidth = () => {
-  const isSSR = typeof window === 'undefined'
+  const isSSR = typeof window === "undefined";
 
-  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
-}
+  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
+};
 
 class DesktopContainer extends Component {
-  state = {}
+  state = {};
 
-  hideFixedMenu = () => this.setState({ fixed: false })
-  showFixedMenu = () => this.setState({ fixed: true })
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    const { children } = this.props
-    const { fixed } = this.state
+    const { children } = this.props;
+    const { fixed } = this.state;
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -37,28 +37,37 @@ class DesktopContainer extends Component {
         >
           <Segment
             inverted
-            textAlign='center'
-            style={{ padding: 0, paddingBottom: '3px' }}
+            textAlign="center"
+            style={{ padding: 0, paddingBottom: "3px" }}
             vertical
           >
             <Menu
-              fixed={fixed ? 'top' : null}
+              fixed={fixed ? "top" : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size='large'
+              size="large"
             >
               <Container>
-                <Menu.Item as='a' active>
-                  <Image size='mini' src='https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg' style={{ marginRight: '1.5em' }} />
+                <Menu.Item as="a" active>
+                  <Image
+                    size="mini"
+                    src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
+                    style={{ marginRight: "1.5em" }}
+                  />
                   Sužinok
                 </Menu.Item>
-                <Menu.Item as='a'>Kandidatai</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
-                    Prisijunk
+                <Menu.Item as="a">Kandidatai</Menu.Item>
+                <Menu.Item position="right">
+                  <Button as="a" inverted={!fixed}>
+                    Prisijungti
                   </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                  <Button
+                    as="a"
+                    inverted={!fixed}
+                    primary={fixed}
+                    style={{ marginLeft: "0.5em" }}
+                  >
                     Registruotis
                   </Button>
                 </Menu.Item>
@@ -69,24 +78,24 @@ class DesktopContainer extends Component {
 
         {children}
       </Responsive>
-    )
+    );
   }
 }
 
 DesktopContainer.propTypes = {
-  children: PropTypes.node,
-}
+  children: PropTypes.node
+};
 
 class MobileContainer extends Component {
-  state = {}
+  state = {};
 
-  handleSidebarHide = () => this.setState({ sidebarOpened: false })
+  handleSidebarHide = () => this.setState({ sidebarOpened: false });
 
-  handleToggle = () => this.setState({ sidebarOpened: true })
+  handleToggle = () => this.setState({ sidebarOpened: true });
 
   render() {
-    const { children } = this.props
-    const { sidebarOpened } = this.state
+    const { children } = this.props;
+    const { sidebarOpened } = this.state;
 
     return (
       <Responsive
@@ -96,39 +105,39 @@ class MobileContainer extends Component {
       >
         <Sidebar
           as={Menu}
-          animation='push'
+          animation="push"
           inverted
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item as='a' active>
+          <Menu.Item as="a" active>
             Home
           </Menu.Item>
-          <Menu.Item as='a'>Work</Menu.Item>
-          <Menu.Item as='a'>Company</Menu.Item>
-          <Menu.Item as='a'>Careers</Menu.Item>
-          <Menu.Item as='a'>Log in</Menu.Item>
-          <Menu.Item as='a'>Sign Up</Menu.Item>
+          <Menu.Item as="a">Work</Menu.Item>
+          <Menu.Item as="a">Company</Menu.Item>
+          <Menu.Item as="a">Careers</Menu.Item>
+          <Menu.Item as="a">Log in</Menu.Item>
+          <Menu.Item as="a">Sign Up</Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
             inverted
-            textAlign='center'
-            style={{ minHeight: 350, padding: '1em 0em' }}
+            textAlign="center"
+            style={{ minHeight: 350, padding: "1em 0em" }}
             vertical
           >
             <Container>
-              <Menu inverted pointing secondary size='large'>
+              <Menu inverted pointing secondary size="large">
                 <Menu.Item onClick={this.handleToggle}>
-                  <Icon name='sidebar' />
+                  <Icon name="sidebar" />
                 </Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted>
+                <Menu.Item position="right">
+                  <Button as="a" inverted>
                     Log in
                   </Button>
-                  <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
+                  <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
                     Sign Up
                   </Button>
                 </Menu.Item>
@@ -139,29 +148,27 @@ class MobileContainer extends Component {
           {children}
         </Sidebar.Pusher>
       </Responsive>
-    )
+    );
   }
 }
 
 MobileContainer.propTypes = {
-  children: PropTypes.node,
-}
+  children: PropTypes.node
+};
 
 const ResponsiveContainer = ({ children }) => (
   <div>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
   </div>
-)
+);
 
 ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
-}
+  children: PropTypes.node
+};
 
 const HomepageLayout = props => (
-  <ResponsiveContainer>
-    {props.children}
-  </ResponsiveContainer>
-)
+  <ResponsiveContainer>{props.children}</ResponsiveContainer>
+);
 
-export default HomepageLayout
+export default HomepageLayout;

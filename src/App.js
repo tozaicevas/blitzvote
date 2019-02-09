@@ -3,7 +3,7 @@ import { Router, Switch, Route } from "react-router";
 import { history } from "./state";
 import Layout from "./components/Layout";
 import "./App.css";
-import FeedGrid from "./components/FeedGrid";
+import MainView from "./views/Main";
 
 class App extends Component {
   render() {
@@ -11,10 +11,9 @@ class App extends Component {
       <div className="App" style={{ height: "100%" }}>
         <Router history={history}>
           <Layout>
-              <Switch>
-                <Route exact path="/" component={FeedGrid}/>
-              </Switch>
-            <FeedGrid />
+            <Switch>
+              <Route exact path="/" component={MainView} />
+            </Switch>
           </Layout>
         </Router>
       </div>

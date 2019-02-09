@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 
 const styles = {
   counters: {
-    padding: '5px',
+    padding: '5px 0 5px 10px',
     display: 'flex',
     justifyContent: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    alignItems: 'center'
   }
 };
 
@@ -16,9 +17,13 @@ class QuestionCard extends Component {
     return (
       <Card style={{ width: "100%", display: 'flex', flexDirection: 'row' }}>
         <div style={styles.counters}>
-          <Icon name='angle up' onClick={() => this.props.incCounter(this.props.question)} />
-          {this.props.question.points}
-          <Icon name='angle down' onClick={() => this.props.decCounter(this.props.question)}/>
+          <span style={{ cursor: 'pointer' }}>
+            <Icon name='angle up' onClick={() => this.props.incCounter(this.props.question)} />
+          </span>
+          <div style={{ margin: '0 .25rem 0 0' }}>{this.props.question.points}</div>
+          <span style={{ cursor: 'pointer' }}>
+            <Icon name='angle down' onClick={() => this.props.decCounter(this.props.question)}/>
+          </span>
         </div>
         <Card.Content>
           <Card.Header>{this.props.question.text}</Card.Header>

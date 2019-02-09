@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import {
   Button,
   Container,
@@ -50,14 +51,20 @@ class DesktopContainer extends Component {
             >
               <Container>
                 <Menu.Item as="a" active>
+                  <Link to="/">
                   <Image
                     size="mini"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
                     style={{ marginRight: "1.5em" }}
                   />
                   Sužinok
+                  </Link>
                 </Menu.Item>
-                <Menu.Item as="a">Kandidatai</Menu.Item>
+                <Menu.Item as="a">
+                  <Link to="/candidates">
+                    Kandidatai
+                  </Link>
+                </Menu.Item>
                 <Menu.Item position="right">
                   <Button as="a" inverted={!fixed}>
                     Prisijungti

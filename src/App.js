@@ -4,6 +4,7 @@ import { history } from "./state";
 import Layout from "./components/Layout";
 import "./App.css";
 import MainView from "./views/Main";
+import CandidatesPage from "./components/candidates/CandidatesPage";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={MainView} />
+              <Route exact path="/candidates" component={CandidatesPage} />
             </Switch>
           </Layout>
         </Router>

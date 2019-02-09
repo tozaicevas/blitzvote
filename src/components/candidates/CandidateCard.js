@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Card, Image} from 'semantic-ui-react';
 
-export const CandidateCard = (props) => (
+const CandidateCard = (props) => (
     <Card>
         <Card.Content>
             <Image
@@ -24,3 +24,5 @@ export const CandidateCard = (props) => (
         </Card.Content>
     </Card>
 );
+
+export default CandidateCard

@@ -6,6 +6,6 @@ const PartyCandidates = (props) => (
     <Card.Group>
         {props.candidates.map((candidate, i) => <CandidateCard name={candidate.name} key={i} />)}
     </Card.Group>
-)
+);
 
 export default PartyCandidates

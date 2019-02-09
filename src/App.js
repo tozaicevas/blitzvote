@@ -3,7 +3,7 @@ import { Router, Switch, Route } from "react-router";
 import { history } from "./state";
 import Layout from "./components/Layout";
 import "./App.css";
-import Candidates from "./views/Candidates";
+import CandidatesView from "./views/Candidates";
 import MainView from "./views/Main";
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={MainView} />
             </Switch>
-                <Route exact path="/candidates" component={Candidates}/>
+                <Route exact path="/candidates" component={CandidatesView}/>
           </Layout>
         </Router>
       </div>

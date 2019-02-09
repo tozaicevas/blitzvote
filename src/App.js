@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router } from "react-router";
+import { Router, Switch, Route } from "react-router";
 import { history } from "./state";
 import Layout from "./components/Layout";
 import "./App.css";
@@ -11,6 +11,9 @@ class App extends Component {
       <div className="App" style={{ height: "100%" }}>
         <Router history={history}>
           <Layout>
+              <Switch>
+                <Route exact path="/" component={FeedGrid}/>
+              </Switch>
             <FeedGrid />
           </Layout>
         </Router>

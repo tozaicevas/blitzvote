@@ -1,40 +1,46 @@
 import React from "react";
+import { connect } from "react-redux";
 import { List } from "semantic-ui-react";
 import { Icon } from "semantic-ui-react";
 
-const LeftBar = () => (
-  <List selection verticalAlign="middle">
+const SingleCategory = ({ name, iconName, questionAmount }) => {
+  return (
     <List.Item>
-      <Icon name="book" size="large" />
+      <Icon name={iconName} size="large" />
       <List.Content>
-        <List.Header>Svietimas</List.Header>
+        <List.Header>
+          {name}
+          <List.Content floated="right">{questionAmount}</List.Content>
+        </List.Header>
       </List.Content>
     </List.Item>
-    <List.Item>
-      <Icon name="recycle" size="large" />
-      <List.Content>
-        <List.Header>Ekologija</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon name="shield" size="large" />
-      <List.Content>
-        <List.Header>Saugumas</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon name="computer" size="large" style={{ paddingRight: "0.15em" }} />
-      <List.Content>
-        <List.Header>Technologijos</List.Header>
-      </List.Content>
-    </List.Item>
-    <List.Item>
-      <Icon name="money" size="large" style={{ paddingRight: "0.15em" }} />
-      <List.Content>
-        <List.Header>Ekonomika</List.Header>
-      </List.Content>
-    </List.Item>
-  </List>
-);
+  );
+};
 
-export default LeftBar;
+const LeftBar = props => {
+  return (
+    <List selection verticalAlign="middle">
+      {props.categories.map(category => (
+        <SingleCategory
+          name={category.title}
+          iconName={category.icon}
+          questionAmount={
+            props.questions.filter(question =>
+              question.categories.includes(category.id)
+            ).length
+          }
+        />
+      ))}
+    </List>
+  );
+};
+
+const mapStateToProps = state => ({
+  questions: state.questions,
+  categories: state.categories
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(LeftBar);

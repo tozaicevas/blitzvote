@@ -34,6 +34,10 @@ class LeftBar extends React.Component {
           style={
             !this.state.currentCategoryId ? { backgroundColor: "#e5e5e5" } : {}
           }
+          onClick={() => {
+            this.setState({ currentCategoryId: null });
+            this.props.onClearFilters();
+          }}
         >
           <Icon name="question circle" size="large" />
           <List.Content>
@@ -82,7 +86,7 @@ const mapDispatchToProps = dispatch => ({
         predicate: question => question.categories.includes(categoryId)
       }
     }),
-  onClearFilters: dispatch({ type: "FILTER_CLEAR" })
+  onClearFilters: () => dispatch({ type: "FILTER_CLEAR" })
 });
 
 export default connect(

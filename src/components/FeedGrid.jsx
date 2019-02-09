@@ -1,5 +1,13 @@
 import React from "react";
 import { Grid, Image } from "semantic-ui-react";
+import QuestionRepository from "../repositories/QuestionRepository";
+import QuestionCard from "./QuestionCard";
+
+const AllCards = () => {
+  return QuestionRepository.getAll().map(question => (
+    <QuestionCard question={question} />
+  ));
+};
 
 const FeedGrid = () => (
   <Grid celled="internally">

@@ -10,8 +10,6 @@ export default class User {
   }
 
   getParty = () => {
-    return PartyRepository.getAllParties().filter(
-      party => party.id === this.partyId
-    );
-  }
+    return PartyRepository.getAll().filter(party => party.id === this.partyId);
+  };
 }

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import {
   Button,
   Container,
@@ -50,7 +51,7 @@ class DesktopContainer extends Component {
                 size="large"
             >
               <Container>
-                <Menu.Item as="a" active>
+                <Menu.Item active={this.props.activeLink === '/'}>
                   <Image
                       size="mini"
                       src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
@@ -60,7 +61,7 @@ class DesktopContainer extends Component {
                     Sužinok
                   </NavLink>
                 </Menu.Item>
-                <Menu.Item as="a">
+                <Menu.Item active={this.props.activeLink === '/candidates'}>
                   <NavLink to="/candidates">
                     Kandidatai
                   </NavLink>
@@ -162,10 +163,10 @@ MobileContainer.propTypes = {
   children: PropTypes.node
 };
 
-const ResponsiveContainer = ({ children }) => (
+const ResponsiveContainer = ({ children, activeLink }) => (
   <div>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
+    <DesktopContainer activeLink={activeLink}>{children}</DesktopContainer>
+    <MobileContainer activeLink={activeLink}>{children}</MobileContainer>
   </div>
 );
 
@@ -173,8 +174,12 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node
 };
 
-const HomepageLayout = props => (
-  <ResponsiveContainer>{props.children}</ResponsiveContainer>
+const HomepageLayout = props =>(
+  <ResponsiveContainer activeLink={props.link}>{props.children}</ResponsiveContainer>
 );
 
-export default HomepageLayout;
+const mapStateToProps = state => ({
+  link: state.router.location.pathname
+});
+
+export default connect(mapStateToProps, null)(HomepageLayout);

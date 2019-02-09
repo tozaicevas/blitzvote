@@ -13,7 +13,7 @@ export default function (action, state = initialState) {
         case 'QUESTION_INSERT': 
             return [
                 ...state,
-                action.question
+                action.payload
             ];
         default:
             return state;

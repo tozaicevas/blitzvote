@@ -11,7 +11,7 @@ import {
   Sidebar,
   Visibility
 } from "semantic-ui-react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -56,14 +56,14 @@ class DesktopContainer extends Component {
                       src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
                       style={{ marginRight: "1.5em" }}
                   />
-                  <Link to="/">
+                  <NavLink to="/">
                     Sužinok
-                  </Link>
+                  </NavLink>
                 </Menu.Item>
                 <Menu.Item as="a">
-                  <Link to="/candidates">
+                  <NavLink to="/candidates">
                     Kandidatai
-                  </Link>
+                  </NavLink>
                 </Menu.Item>
                 <Menu.Item position="right">
                   <Button as="a" inverted={!fixed}>

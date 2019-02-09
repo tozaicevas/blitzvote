@@ -1,4 +1,4 @@
-import Question from "../models/Answer";
+import Question from "../models/Question";
 
 export default class QuestionRepository {
   static data = [

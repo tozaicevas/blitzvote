@@ -1,4 +1,4 @@
-import Party from "";
+import PartyRepository from "../repositories/PartyRepository";
 
 export default class User {
   constructor(id, isPolitician, name, photo, partyId) {
@@ -10,6 +10,8 @@ export default class User {
   }
 
   getParty() {
-    Party.getAllParties();
+    return PartyRepository.getAllParties().filter(
+      party => party.id === this.partyId
+    );
   }
 }

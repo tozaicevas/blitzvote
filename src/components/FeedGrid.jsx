@@ -26,7 +26,7 @@ const mapStateToProps = (state) => ({
   questions: state.questions.map(question => {
     question.user = state.users.find(user => user.id === question.userId);
     return question;
-  })
+  }).sort((q1, q2) => q2.points - q1.points)
 });
 
 export default connect(mapStateToProps, null)(FeedGrid);

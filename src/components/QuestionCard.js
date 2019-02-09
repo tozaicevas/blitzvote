@@ -33,20 +33,20 @@ class QuestionCard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  incCounter: (question) => ({
+  incCounter: (question) => dispatch(({
     type: 'QUESTION_UPDATE',
     payload: {
       ...question,
       points: question.points + 1
     }
-  }),
-  decCounter: (question) => ({
+  })),
+  decCounter: (question) => dispatch(({
     type: 'QUESTION_UPDATE',
     payload: {
       ...question,
       points: question.points - 1
     }
-  })
+  }))
 });
 
 export default connect(null, mapDispatchToProps)(QuestionCard);

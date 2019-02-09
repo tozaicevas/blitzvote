@@ -1,7 +1,4 @@
-import moment from 'moment';
-import AnswerRepository from '../repositories/AnswersRepository';
-import UserRepository from '../repositories/UserRepository';
-import CategoriesRepository from '../repositories/CategoriesRepository';
+import moment from "moment";
 
 export default class Question {
   categories = [];
@@ -10,6 +7,7 @@ export default class Question {
     this.id = id;
     this.userId = userId;
     this.text = text;
+    this.answers = answers;
     this.categories = categories;
     this.createdAt = moment();
   }

@@ -13,7 +13,7 @@ export class AnswerRepository {
         return this.data;
     }
 
-    insert = (user) => {
-        this.data.push(user);
+    insert = (answer) => {
+        this.data.push(answer);
     }
 }

@@ -4,7 +4,11 @@ import { Grid, Image } from "semantic-ui-react";
 import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
 
-const FeedGrid = ({ questions }) => {
+const FeedGrid = ({ questions, filters }) => {
+  // filters.forEach(filter => {
+  //   questions = questions.filter(filter.predicate);
+  // });
+
   return (
     <Grid celled="internally">
       <Grid.Row>
@@ -40,7 +44,8 @@ const mapStateToProps = (state) => ({
       if (condition > 0) return -1;
       if (condition < 0) return 1;
       return 0;
-    })
+    }),
+    filters: state.filters
 });
 
 export default connect(mapStateToProps, null)(FeedGrid);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Icon } from "semantic-ui-react";
 import { connect } from 'react-redux';
 
 const styles = {
@@ -12,28 +12,39 @@ const styles = {
   }
 };
 
-class QuestionCard extends Component {
+const Answer = ({ answer }) => (
+  <div>
+    <div style={{ display: 'flex' }}>
+      <img src={answer.user.photo} style={{ width: '50px', height: '50px', borderRadius: '50%' }} alt="avatar"/>
+      <div style={{ marginLeft: '10px', display: 'flex', flexDirection: 'column' }} >
+        <b>{answer.user.name}</b>
+        <i>{answer.user.party.title}</i>
+      </div>
+    </div>
+    <div style={{ marginTop: '10px' }}>
+      {answer.text}
+    </div>
+  </div>  
+);
 
-  getDescription() {
-    const answers = this.props.answers;
+class QuestionCard extends Component {
+  state = {
+    showingMore: false
+  };
+
+  onShowMore = () => this.setState(state => ({
+    showingMore: !state.showingMore
+  }));
+
+  getAnswersSingle(answers) {
     if (answers.length) {
       const answer = answers[Math.floor(Math.random() * answers.length)];
 
       return (
         <div style={{ marginTop: '30px' }}>
-          <div style={{ display: 'flex' }}>
-            <img src={answer.user.photo} style={{ width: '50px', height: '50px', borderRadius: '50%' }} alt="avatar"/>
-            <div style={{ marginLeft: '10px', display: 'flex', flexDirection: 'column' }} >
-              <b>{answer.user.name}</b>
-              <i>{answer.user.party.title}</i>
-            </div>
-          </div>
-          <div style={{ marginTop: '10px' }}>
-            {answer.text}
-          </div>
-        
+          <Answer answer={answer} />
           {(answers.length - 1) > 0 ? (
-            <div className="view-more-answers">
+            <div className="view-more-answers" onClick={this.onShowMore}>
               Žiūrėti kitus atsakymus...
             </div>
           ) : ''} 
@@ -44,6 +55,29 @@ class QuestionCard extends Component {
     return (
       <div>Dar nėra atsakymų.</div>
     );
+  }
+
+  getAnswersAll(answers) {
+    if (answers.length) {
+      return answers.map(answer => (
+        <div style={{ marginTop: '30px' }} key={answer.id}>
+          <Answer answer={answer} />
+        </div>
+      ));
+    }
+
+    return (
+      <div>Dar nėra atsakymų.</div>
+    );
+  }
+
+  getAnswers() {
+    const answers = this.props.answers;
+    if (!this.state.showingMore) {
+      return this.getAnswersSingle(answers);
+    }
+    
+    return this.getAnswersAll(answers);
   }
 
   render() {
@@ -62,7 +96,7 @@ class QuestionCard extends Component {
           <Card.Header>{this.props.question.text}</Card.Header>
           <Card.Meta>{this.props.question.user.name}{this.props.question.user.name ? ', ' + this.props.question.user.subtitle : '' }</Card.Meta>
           <Card.Description>
-            {this.getDescription()}
+            {this.getAnswers()}
           </Card.Description>
         </Card.Content>
       </Card>

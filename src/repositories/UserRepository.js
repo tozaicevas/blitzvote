@@ -1,19 +1,19 @@
-import Party from "../models/Party";
+import User from "../models/User";
 
-export default class PartyRepository {
-  static data = [
-    new Party(1, "Lietuvos Respublikos liberalų sąjūdis"),
-    new Party(2, "Tėvynės sąjunga - Lietuvos krikščionys demokratai"),
-    new Party(3, "Tvarka ir teisingumas"),
-    new Party(4, "Lietuvos valstiečių ir žaliųjų sąjunga"),
-    new Party(5, "Lietuvos socialdemokratų partija")
+export class UserRepository {
+  static data  = [
+    new User(1, true, "Viktor Uspaschik", null, 1),
+    new User(2, true, "Eugenijus Gentvilas", null, 2),
+    new User(3, false, "Faustas Butkus", null, null),
+    new User(4, false, "Tomas Zaicevas", null, null),
+    new User(5, false, "Joris Medeisis", null, null)
   ];
 
-  static getAll() {
-    return PartyRepository.data;
+  getAll() {
+    return this.data;
   }
 
-  static insert(party) {
-    PartyRepository.data.push(party);
+  insert(user) {
+    this.data.push(user);
   }
 }

@@ -1,11 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { List } from "semantic-ui-react";
-import { Icon } from "semantic-ui-react";
+import { List, Icon } from "semantic-ui-react";
 
-const SingleCategory = ({ name, iconName, questionAmount, onClick }) => {
+const SingleCategory = ({
+  name,
+  iconName,
+  questionAmount,
+  onClick,
+  styled
+}) => {
   return (
-    <List.Item onClick={onClick}>
+    <List.Item
+      style={styled ? { backgroundColor: "#e5e5e5" } : {}}
+      onClick={onClick}
+    >
       <Icon name={iconName} size="large" />
       <List.Content>
         <List.Header>
@@ -17,25 +25,47 @@ const SingleCategory = ({ name, iconName, questionAmount, onClick }) => {
   );
 };
 
-const LeftBar = props => {
-  return (
-    <List selection verticalAlign="middle">
-      {props.categories.map(category => (
-        <SingleCategory
-          key={category.id}
-          name={category.title}
-          iconName={category.icon}
-          onClick={() => props.onFilterCategory(category.id)}
-          questionAmount={
-            props.questions.filter(question =>
-              question.categories.includes(category.id)
-            ).length
+class LeftBar extends React.Component {
+  state = { currentCategoryId: null };
+  render() {
+    return (
+      <List selection verticalAlign="middle">
+        <List.Item
+          style={
+            !this.state.currentCategoryId ? { backgroundColor: "#e5e5e5" } : {}
           }
-        />
-      ))}
-    </List>
-  );
-};
+        >
+          <Icon name="question circle" size="large" />
+          <List.Content>
+            <List.Header>
+              All
+              <List.Content floated="right">
+                {this.props.questions.length}
+              </List.Content>
+            </List.Header>
+          </List.Content>
+        </List.Item>
+        {this.props.categories.map(category => (
+          <SingleCategory
+            styled={category.id === this.state.currentCategoryId}
+            key={category.id}
+            name={category.title}
+            iconName={category.icon}
+            onClick={() => {
+              this.setState({ currentCategoryId: category.id });
+              this.props.onFilterCategory(category.id);
+            }}
+            questionAmount={
+              this.props.questions.filter(question =>
+                question.categories.includes(category.id)
+              ).length
+            }
+          />
+        ))}
+      </List>
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   questions: state.questions,

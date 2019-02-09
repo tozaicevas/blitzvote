@@ -9,11 +9,11 @@ export class AnswerRepository {
         new Answer(5, 1, 'geras vaizdelis')
     ];
 
-    getAll = () => {
+    static getAll = () => {
         return this.data;
     }
 
-    insert = (answer) => {
+    static insert = (answer) => {
         this.data.push(answer);
     }
 }

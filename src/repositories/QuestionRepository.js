@@ -9,11 +9,11 @@ export class QuestionRepository {
         new Question(1, 4, 'Kodėl ES negali bendradarbiauti su Rusija?', 1, 3, null),
     ];
 
-    getAll = () => {
+    static getAll = () => {
         return this.data;
     }
 
-    insert = (question) => {
+    static insert = (question) => {
         this.data.push(question);
     }
 }

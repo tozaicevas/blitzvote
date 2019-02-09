@@ -9,11 +9,11 @@ export class CategoryRepository {
         new Category(5, 'Ekologija'),
     ];
 
-    getAll = () => {
+    static getAll = () => {
         return this.data;
     }
 
-    insert = (category) => {
+    static insert = (category) => {
         this.data.push(category);
     }
 }

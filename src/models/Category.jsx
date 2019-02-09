@@ -7,8 +7,7 @@ export default class Category {
   }
 
   get questions() {
-    return QuestionRepository.getAll().map(question =>
-      question.categories.includes(this.id)
-    );
+    return QuestionRepository.getAll()
+      .filter(question => question.categories.includes(this.id));
   };
 }

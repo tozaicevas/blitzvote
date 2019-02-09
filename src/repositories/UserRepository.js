@@ -9,11 +9,11 @@ export class PartyRepository {
         new Party(5, "Lietuvos socialdemokratų partija"),
     ];
 
-    getAll() {
+    static getAll() {
         return this.data;
     }
 
-    insert(party) {
+    static insert(party) {
         this.data.push(party);
     }
 }

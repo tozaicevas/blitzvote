@@ -1,3 +1,5 @@
+import User from '../models/User';
+
 export class UserRepository {
     static data  = [
         new User(1, true, "Viktor Uspaschik", null, 1),
@@ -7,11 +9,11 @@ export class UserRepository {
         new User(5, false, "Joris Medeisis", null, null)
     ];
 
-    getAll() {
+    getAll = () => {
         return this.data;
     }
 
-    insert(user) {
+    insert = (user) => {
         this.data.push(user);
     }
 }

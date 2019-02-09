@@ -11,7 +11,6 @@ import {
   Sidebar,
   Visibility
 } from "semantic-ui-react";
-import FeedGrid from "./FeedGrid";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";

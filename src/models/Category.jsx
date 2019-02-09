@@ -6,7 +6,7 @@ export default class Category {
     this.title = title;
   }
 
-  getAllQuestions = () => {
+  get questions() {
     return QuestionRepository.getAll().map(question =>
       question.categories.includes(this.id)
     );

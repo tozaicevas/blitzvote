@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, Header, Image, Menu } from 'semantic-ui-react'
+import { Container, Image, Menu } from 'semantic-ui-react'
 
-const Layout = () => (
+const Layout = props => (
   <div style={{ height: '100%' }}>
     <Menu fixed='top' inverted>
       <Container>
@@ -14,7 +14,7 @@ const Layout = () => (
     </Menu>
 
     <Container text style={{ marginTop: '7em' }}>
-      
+      {props.children}
     </Container>
   </div>
 )

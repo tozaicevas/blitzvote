@@ -9,7 +9,7 @@ export default class User {
     this.partyId = partyId;
   }
 
-  getParty = () => {
+  get party() {
     return PartyRepository.getAllParties().filter(
       party => party.id === this.partyId
     );

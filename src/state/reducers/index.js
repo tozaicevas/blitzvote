@@ -5,6 +5,7 @@ import parties from './parties';
 import categories from './categories';
 import answers from './answers';
 import users from './users';
+import filters from './filters';
 
 export default (history) => combineReducers({
   router: connectRouter(history),
@@ -12,5 +13,6 @@ export default (history) => combineReducers({
   parties,
   categories,
   answers,
-  users
+  users,
+  filters
 });

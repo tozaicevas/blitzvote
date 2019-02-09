@@ -5,9 +5,9 @@ import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
 
 const FeedGrid = ({ questions, filters }) => {
-  // filters.forEach(filter => {
-  //   questions = questions.filter(filter.predicate);
-  // });
+  filters.forEach(filter => {
+    questions = questions.filter(filter.predicate);
+  });
 
   return (
     <Grid celled="internally">
@@ -33,6 +33,7 @@ const FeedGrid = ({ questions, filters }) => {
 };
 
 const mapStateToProps = state => ({
+  filters: state.filters,
   questions: state.questions
     .map(question => {
       question.user = state.users.find(user => user.id === question.userId);
@@ -52,8 +53,7 @@ const mapStateToProps = state => ({
       if (condition > 0) return -1;
       if (condition < 0) return 1;
       return 0;
-    }),
-    filters: state.filters
+    })
 });
 
 export default connect(

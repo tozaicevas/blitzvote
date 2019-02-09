@@ -1,4 +1,4 @@
-import Question from "../models/Question";
+import Question from "../../models/Question";
 
 const initialState = [
     new Question(1, 4, "Ką manote apie bendrą ES kariuomenę?", [2]),
@@ -8,12 +8,19 @@ const initialState = [
     new Question(5, 4, "Kodėl ES negali bendradarbiauti su Rusija?", [2])
 ];
 
-export default function (action, state = initialState) {
+export default function (state = initialState, action) {
     switch(action.type) {
         case 'QUESTION_INSERT': 
             return [
                 ...state,
                 action.payload
+            ];
+        case 'QUESTION_UPDATE': 
+            const newQuestion = action.payload;
+            const withoutOld = state.filter(q => q.id !== newQuestion.id);
+            return [
+                ...withoutOld,
+                newQuestion
             ];
         default:
             return state;

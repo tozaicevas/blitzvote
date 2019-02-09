@@ -8,7 +8,7 @@ const initialState = [
     new User(5, false, "Joris Medeisis", null, null)
 ];
 
-export default function (action, state = initialState) {
+export default function (state = initialState, action) {
     switch(action.type) {
         case 'USER_INSERT':
             return [

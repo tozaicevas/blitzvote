@@ -1,4 +1,4 @@
-import Answer from "../models/Answer";
+import Answer from "../../models/Answer";
 
 const initialState = [
     new Answer(1, 1, "taaaaip"),
@@ -8,7 +8,7 @@ const initialState = [
     new Answer(5, 1, "geras vaizdelis")
 ];
 
-export default function (action, state = initialState) {
+export default function (state = initialState, action) {
     switch(action.type) {
         case 'ANSWER_INSERT': 
             return [

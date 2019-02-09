@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Icon } from "semantic-ui-react";
+import { connect } from 'react-redux';
 
 const styles = {
   counters: {
@@ -11,21 +12,13 @@ const styles = {
 };
 
 class QuestionCard extends Component {
-  increaseCounter = () => {
-    this.props.question.points++;
-  };
-  
-  decreaseCounter = () => {
-    this.props.question.points--;
-  };
-
   render() {
     return (
       <Card style={{ width: "100%", display: 'flex', flexDirection: 'row' }}>
         <div style={styles.counters}>
-          <Icon name='angle up' onClick={this.increaseCounter} />
+          <Icon name='angle up' onClick={() => this.props.incCounter(this.props.question)} />
           {this.props.question.points}
-          <Icon name='angle down' onClick={this.decreaseCounter}/>
+          <Icon name='angle down' onClick={() => this.props.decCounter(this.props.question)}/>
         </div>
         <Card.Content>
           <Card.Header>{this.props.question.text}</Card.Header>
@@ -39,4 +32,21 @@ class QuestionCard extends Component {
   }
 }
 
-export default QuestionCard;
+const mapDispatchToProps = dispatch => ({
+  incCounter: (question) => ({
+    type: 'QUESTION_UPDATE',
+    payload: {
+      ...question,
+      points: question.points + 1
+    }
+  }),
+  decCounter: (question) => ({
+    type: 'QUESTION_UPDATE',
+    payload: {
+      ...question,
+      points: question.points - 1
+    }
+  })
+});
+
+export default connect(null, mapDispatchToProps)(QuestionCard);

@@ -1,4 +1,4 @@
-import Category from "../models/Category";
+import Category from "../../models/Category";
 
 const initialState = [
     new Category(1, "Mokslas"),
@@ -8,7 +8,7 @@ const initialState = [
     new Category(5, "Ekologija")
 ];
 
-export default function (action, state = initialState) {
+export default function (state = initialState, action) {
     switch(action.type) {
         case 'CATEGORY_INSERT': 
             return [

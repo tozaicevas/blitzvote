@@ -1,4 +1,4 @@
-import Party from "../models/Party";
+import Party from "../../models/Party";
 
 const initialState = [
     new Party(1, "Lietuvos Respublikos liberalų sąjūdis"),
@@ -8,7 +8,7 @@ const initialState = [
     new Party(5, "Lietuvos socialdemokratų partija")
 ];
 
-export default function (action, state = initialState) {
+export default function (state = initialState, action) {
     switch(action.type) {
         case 'PARTY_INSERT': 
             return [

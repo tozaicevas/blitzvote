@@ -15,7 +15,6 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={MainView} />
             </Switch>
-                <Route exact path="/" component={Candidates}/>
           </Layout>
         </Router>
       </div>

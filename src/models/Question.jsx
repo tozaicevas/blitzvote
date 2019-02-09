@@ -4,6 +4,8 @@ import UserRepository from '../repositories/UserRepository';
 import CategoriesRepository from '../repositories/CategoriesRepository';
 
 export default class Question {
+  categories = [];
+  
   constructor(id, userId, text, categories) {
     this.id = id;
     this.userId = userId;
@@ -24,5 +26,10 @@ export default class Question {
 
   get categories() {
     return CategoriesRepository.getAll();
+  }
+
+  set categories(newCats) {
+    this.categories.splice(0, this.categories.length);
+    newCats.forEach(c => this.categories.push(c));
   }
 }

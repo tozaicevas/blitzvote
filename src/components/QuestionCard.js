@@ -27,7 +27,7 @@ class QuestionCard extends Component {
         </div>
         <Card.Content>
           <Card.Header>{this.props.question.text}</Card.Header>
-          <Card.Meta>Co-Worker</Card.Meta>
+          <Card.Meta>{this.props.question.user.name}{this.props.question.user.name ? ', ' + this.props.question.user.subtitle : '' }</Card.Meta>
           <Card.Description>
             Matthew is a pianist living in Nashville.
           </Card.Description>

@@ -18,6 +18,18 @@
   color: #61dafb;
 }
 
+.view-more-answers {
+  margin-top: 10px;
+  font-weight: bolder;
+}
+
+.view-more-answers:hover {
+  color: #2185d0;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

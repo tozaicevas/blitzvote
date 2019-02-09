@@ -12,7 +12,7 @@ const FeedGrid = ({ questions }) => {
           <LeftBar />
         </Grid.Column>
         <Grid.Column width={10}>
-          {questions.map(question => <QuestionCard key={question.id} question={question} />)}
+          {questions.map(question => <QuestionCard key={question.id} question={question} answers={question.answers} />)}
         </Grid.Column>
         <Grid.Column width={3}>
           <Image src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg" />
@@ -23,10 +23,24 @@ const FeedGrid = ({ questions }) => {
 };
 
 const mapStateToProps = (state) => ({
-  questions: state.questions.map(question => {
-    question.user = state.users.find(user => user.id === question.userId);
-    return question;
-  }).sort((q1, q2) => q2.points - q1.points)
+  questions: state.questions
+    .map(question => {
+      question.user = state.users.find(user => user.id === question.userId);
+      question.answers = state.answers
+        .filter(answer => answer.questionId === question.id)
+        .map(answer => {
+          answer.user = state.users.find(user => user.id === answer.userId)
+          answer.user.party = state.parties.find(party => answer.user.partyId === party.id)
+          return answer;
+        });
+      return question;
+    })
+    .sort((q1, q2) => {
+      const condition = q1.points - q2.points;
+      if (condition > 0) return -1;
+      if (condition < 0) return 1;
+      return 0;
+    })
 });
 
 export default connect(mapStateToProps, null)(FeedGrid);

@@ -1,4 +1,3 @@
-import Answer from "../models/Answer";
 import User from "../../models/User";
 
 const initialState = [

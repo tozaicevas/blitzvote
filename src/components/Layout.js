@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
 import {
   Button,
   Container,
@@ -12,6 +11,7 @@ import {
   Sidebar,
   Visibility
 } from "semantic-ui-react";
+import {Link} from "react-router-dom";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -32,32 +32,32 @@ class DesktopContainer extends Component {
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility
-          once={false}
-          onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}
+            once={false}
+            onBottomPassed={this.showFixedMenu}
+            onBottomPassedReverse={this.hideFixedMenu}
         >
           <Segment
-            inverted
-            textAlign="center"
-            style={{ padding: 0, paddingBottom: "3px" }}
-            vertical
+              inverted
+              textAlign="center"
+              style={{ padding: 0, paddingBottom: "3px" }}
+              vertical
           >
             <Menu
-              fixed={fixed ? "top" : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="large"
+                fixed={fixed ? "top" : null}
+                inverted={!fixed}
+                pointing={!fixed}
+                secondary={!fixed}
+                size="large"
             >
               <Container>
                 <Menu.Item as="a" active>
-                  <Link to="/">
                   <Image
-                    size="mini"
-                    src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
-                    style={{ marginRight: "1.5em" }}
+                      size="mini"
+                      src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
+                      style={{ marginRight: "1.5em" }}
                   />
-                  Sužinok
+                  <Link to="/">
+                    Sužinok
                   </Link>
                 </Menu.Item>
                 <Menu.Item as="a">
@@ -70,10 +70,10 @@ class DesktopContainer extends Component {
                     Prisijungti
                   </Button>
                   <Button
-                    as="a"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
+                      as="a"
+                      inverted={!fixed}
+                      primary={fixed}
+                      style={{ marginLeft: "0.5em" }}
                   >
                     Registruotis
                   </Button>
@@ -82,7 +82,6 @@ class DesktopContainer extends Component {
             </Menu>
           </Segment>
         </Visibility>
-
         {children}
       </Responsive>
     );

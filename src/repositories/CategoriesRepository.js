@@ -10,10 +10,10 @@ export default class CategoryRepository {
   ];
 
   static getAll = () => {
-    return this.data;
+    return CategoryRepository.data;
   };
 
   static insert = category => {
-    this.data.push(category);
+    CategoryRepository.data.push(category);
   };
 }

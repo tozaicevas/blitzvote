@@ -10,10 +10,10 @@ export default class AnswerRepository {
   ];
 
   static getAll = () => {
-    return this.data;
+    return AnswerRepository.data;
   };
 
   static insert = answer => {
-    this.data.push(answer);
+    AnswerRepository.data.push(answer);
   };
 }

@@ -10,10 +10,10 @@ export default class PartyRepository {
   ];
 
   static getAll() {
-    return this.data;
+    return PartyRepository.data;
   }
 
   static insert(party) {
-    this.data.push(party);
+    PartyRepository.push(party);
   }
 }

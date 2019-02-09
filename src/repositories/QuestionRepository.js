@@ -17,10 +17,10 @@ export default class QuestionRepository {
   ];
 
   static getAll = () => {
-    return this.data;
+    return QuestionRepository.data;
   };
 
   static insert = question => {
-    this.data.push(question);
+    QuestionRepository.data.push(question);
   };
 }

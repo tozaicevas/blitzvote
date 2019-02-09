@@ -1,6 +1,6 @@
 import User from "../models/User";
 
-export class UserRepository {
+class UserRepository {
   static data  = [
     new User(1, true, "Viktor Uspaschik", null, 1),
     new User(2, true, "Eugenijus Gentvilas", null, 2),
@@ -17,3 +17,5 @@ export class UserRepository {
     this.data.push(user);
   }
 }
+
+export default UserRepository;

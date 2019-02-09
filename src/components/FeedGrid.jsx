@@ -5,7 +5,6 @@ import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
 
 const FeedGrid = ({ questions, filters }) => {
-  console.log(filters);
   filters.forEach(filter => {
     questions = questions.filter(filter.predicate);
   });

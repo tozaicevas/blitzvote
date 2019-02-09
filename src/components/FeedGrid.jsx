@@ -5,7 +5,7 @@ import QuestionCard from "./QuestionCard";
 
 const AllQuestionCards = () => {
   return QuestionRepository.getAll().map(question => {
-    return <QuestionCard question={question} />;
+    return <QuestionCard key={question.id} question={question} />;
   });
 };
 

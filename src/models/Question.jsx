@@ -12,6 +12,7 @@ export default class Question {
     this.text = text;
     this.categories = categories;
     this.createdAt = moment();
+    this.points = 0;
   }
 
   get answers() {

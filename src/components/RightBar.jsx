@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Card, Feed } from 'semantic-ui-react'
+import {Card, Feed, Image} from 'semantic-ui-react'
 
 
 const RightBar = ({candidates}) => {
@@ -26,7 +26,11 @@ const RightBar = ({candidates}) => {
                 <Card.Content>
                     <Feed>
                         <Feed.Event>
-                            <Feed.Label image={candidate1.photo} />
+                            <Image
+                                src={candidate1.photo}
+                                style={{height:50, width:60, marginRight:5}}
+                                circular
+                            />
                             <Feed.Content>
                                 <strong>{candidate1.name}</strong>
                                 <Feed.Date style={{marginTop:'2px'}} content={ago()} />
@@ -39,7 +43,11 @@ const RightBar = ({candidates}) => {
 
                     <Feed>
                         <Feed.Event>
-                            <Feed.Label image={candidate2.photo} />
+                            <Image
+                                src={candidate2.photo}
+                                style={{height:50, width:60, marginRight:5}}
+                                circular
+                            />
                             <Feed.Content>
                                 <strong>{candidate2.name}</strong>
                                 <Feed.Date style={{marginTop:'2px'}} content={ago()} />
@@ -52,7 +60,11 @@ const RightBar = ({candidates}) => {
 
                     <Feed>
                         <Feed.Event>
-                            <Feed.Label image={candidate3.photo} />
+                            <Image
+                                src={candidate3.photo}
+                                style={{height:50, width:60, marginRight:5}}
+                                circular
+                            />
                             <Feed.Content>
                                 <strong>{candidate3.name}</strong>
                                 <Feed.Date style={{marginTop:'2px'}} content={ago()} />
@@ -65,7 +77,11 @@ const RightBar = ({candidates}) => {
 
                     <Feed>
                         <Feed.Event>
-                            <Feed.Label image={candidate4.photo} />
+                            <Image
+                                src={candidate4.photo}
+                                style={{height:50, width:60, marginRight:5}}
+                                circular
+                            />
                             <Feed.Content>
                                 <strong>{candidate4.name}</strong>
                                 <Feed.Date style={{marginTop:'2px'}} content={ago()} />
@@ -78,7 +94,11 @@ const RightBar = ({candidates}) => {
 
                     <Feed>
                         <Feed.Event>
-                            <Feed.Label image={candidate5.photo} />
+                            <Image
+                                src={candidate5.photo}
+                                style={{height:50, width:60, marginRight:5}}
+                                circular
+                            />
                             <Feed.Content>
                                 <strong>{candidate5.name}</strong>
                                 <Feed.Date style={{marginTop:'2px'}} content={ago()} />

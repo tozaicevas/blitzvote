@@ -31,7 +31,7 @@ const Answer = ({ answer }) => (
       </div>
     </div>
     <div style={{ marginTop: "10px" }}>{answer.text}</div>
-    <div style={{ marginTop: '10px', cursor: 'pointer' }}><Icon name="fire" style={{ 'color': 'red' }}/>{Math.floor(Math.random() * 10)}</div>
+    <div style={{ marginTop: '10px', cursor: 'pointer' }}><Icon name="fire" style={{ 'color': 'red' }}/>{answer.fires}</div>
   </div>
 );
 

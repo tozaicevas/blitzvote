@@ -7,5 +7,6 @@ export default class Answer {
     this.text = text;
     this.questionId = questionId;
     this.createdAt = createdAt;
+    this.fires = Math.floor(Math.random() * 10);
   }
 }

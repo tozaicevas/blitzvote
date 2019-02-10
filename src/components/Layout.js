@@ -75,7 +75,7 @@ class DesktopContainer extends Component {
                     <Input icon="search" placeholder="Search..." />
                   </Menu.Item>
                 </Container>
-                <Menu.Item position="right">
+                <Menu.Item position="right" style={{ flexGrow: 1, display: 'flex', minWidth: 200 }}>
                   {/* <Button as="a" inverted={!fixed}>
                     Prisijungti
                   </Button>
@@ -87,7 +87,7 @@ class DesktopContainer extends Component {
                   >
                     Registruotis
                   </Button> */}
-                  <span>Faustas Butkus</span>
+                  <span style={{ marginLeft: 'auto' }}>Faustas Butkus</span>
                   <Button
                     as="a"
                     inverted={!fixed}

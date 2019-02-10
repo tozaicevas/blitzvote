@@ -6,6 +6,6 @@ export default class User {
     this.subtitle = subtitle;
     this.photo = photo;
     this.partyId = partyId;
-    this.description = 'Mylintis tevas ir aktyvus visuomeninis veikejas';
+    this.description = 'Aktyvus visuomenes veikejas';
   }
 }

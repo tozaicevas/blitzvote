@@ -10,6 +10,8 @@ const FeedGrid = ({ questions, filters }) => {
     questions = questions.filter(filter.predicate);
   });
 
+  questions = questions.filter(question => question.answers.length);
+
   return (
     <Grid celled="internally">
       <Grid.Row>
@@ -26,7 +28,7 @@ const FeedGrid = ({ questions, filters }) => {
           ))}
         </Grid.Column>
         <Grid.Column width={3}>
-            <RightBar />
+          <RightBar />
         </Grid.Column>
       </Grid.Row>
     </Grid>

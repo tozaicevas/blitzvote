@@ -72,11 +72,7 @@ class DesktopContainer extends Component {
                 </Menu.Item>
                 <Container fluid={true}>
                   <Menu.Item>
-                    <Input
-                      icon="search"
-                      iconPosition="right"
-                      placeholder="Search..."
-                    />
+                    <Input icon="search" placeholder="Search..." />
                   </Menu.Item>
                 </Container>
                 <Menu.Item position="right">

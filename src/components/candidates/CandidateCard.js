@@ -1,28 +1,31 @@
 import React from 'react';
-import {Button, Card, Image} from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react'
 
-const CandidateCard = (props) => (
-    <Card>
-        <Card.Content>
-            <Image
-                floated='right'
-                size='mini'
-                src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-            />
-            <Card.Header>{props.name}</Card.Header>
-            <Card.Meta>{props.meta}</Card.Meta>
-            <Card.Description>
-                {props.description}
-            </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-            <div className='ui two buttons'>
-                <Button basic color='green'>
-                    View Profile
-                </Button>
-            </div>
-        </Card.Content>
-    </Card>
-);
-
+const CandidateCard = ({candidate}) => {
+    console.log(candidate);
+    return (
+        <Card>
+            <Image src={candidate.photo} size='medium'/>
+            <Card.Content>
+                <Card.Header>{candidate.name}</Card.Header>
+                <Card.Meta>
+                    {candidate.subtitle}
+                </Card.Meta>
+                <Card.Description>{candidate.party}</Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+                <a>
+                    <Icon name='question circle'/>
+                    3 atsakyti klausimai
+                </a>
+            </Card.Content>
+            <Card.Content extra>
+                <a>
+                    <Icon name='phone volume'/>
+                    Paskutinį kart aktyvus prieš 6 valandas
+                </a>
+            </Card.Content>
+        </Card>
+    );
+};
 export default CandidateCard

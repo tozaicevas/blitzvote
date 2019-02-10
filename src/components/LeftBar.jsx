@@ -28,6 +28,9 @@ const SingleCategory = ({
 class LeftBar extends React.Component {
   state = { currentCategoryId: null };
   render() {
+    const questions = this.props.questions.filter(question =>
+      this.props.atsakyti ? question.answers.length : !question.answers.length
+    );
     return (
       <List selection verticalAlign="middle">
         <List.Item
@@ -43,9 +46,7 @@ class LeftBar extends React.Component {
           <List.Content>
             <List.Header>
               All
-              <List.Content floated="right">
-                {this.props.questions.length}
-              </List.Content>
+              <List.Content floated="right">{questions.length}</List.Content>
             </List.Header>
           </List.Content>
         </List.Item>
@@ -60,7 +61,7 @@ class LeftBar extends React.Component {
               this.props.onFilterCategory(category.id);
             }}
             questionAmount={
-              this.props.questions.filter(question =>
+              questions.filter(question =>
                 question.categories.includes(category.id)
               ).length
             }
@@ -72,7 +73,26 @@ class LeftBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  questions: state.questions,
+  questions: state.questions
+    .map(question => {
+      question.user = state.users.find(user => user.id === question.userId);
+      question.answers = state.answers
+        .filter(answer => answer.questionId === question.id)
+        .map(answer => {
+          answer.user = state.users.find(user => user.id === answer.userId);
+          answer.user.party = state.parties.find(
+            party => answer.user.partyId === party.id
+          );
+          return answer;
+        });
+      return question;
+    })
+    .sort((q1, q2) => {
+      const condition = q1.points - q2.points;
+      if (condition > 0) return -1;
+      if (condition < 0) return 1;
+      return 0;
+    }),
   categories: state.categories
 });
 

@@ -15,7 +15,7 @@ const NeatsakytiFeed = ({ questions, filters, answers }) => {
     <Grid celled="internally">
       <Grid.Row>
         <Grid.Column width={3}>
-          <LeftBar />
+          <LeftBar atsakyti={false} />
         </Grid.Column>
         <Grid.Column width={10}>
           {questions.map(question => (

@@ -16,7 +16,7 @@ const FeedGrid = ({ questions, filters }) => {
     <Grid celled="internally">
       <Grid.Row>
         <Grid.Column width={3}>
-          <LeftBar />
+          <LeftBar atsakyti={true} />
         </Grid.Column>
         <Grid.Column width={10}>
           {questions.map(question => (

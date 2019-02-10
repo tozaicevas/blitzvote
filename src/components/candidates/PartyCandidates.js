@@ -6,10 +6,9 @@ import {connect} from "react-redux";
 const PartyCandidates = ({party, politicians}) => {
 
     const candidates = politicians.filter(p => p.partyId === party.id);
-    console.log(candidates);
+
     return (
         <div style={{ margin: '1.5em 0 0 0' }}>
-
             <Header size='large' style={{ marginBottom: '1.5em' }}>
                 <Image src={party.icon} size='large'/>
                 {party.title}

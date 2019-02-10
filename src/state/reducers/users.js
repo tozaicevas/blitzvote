@@ -4,7 +4,7 @@ const initialState = [
     // Noobai
     new User(1, false, "Faustas Butkus", "Fains bicas xD", null, null),
     new User(2, false, "Tomas Zaicevas", "Programuotojas", null, null),
-    new User(3, false, "Joris Medeisis", "Nusivyles istorikas", null, null),
+    new User(3, false, "Joris Medeisis", "Nusivylęs istorikas", null, null),
     // Libai
     new User(4, true, "Petras Auštrevičius", null, 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fg1.dcdn.lt%2Fimages%2Fpix%2Fliberalu-sajudzio-frakcijos-nariu-petro-austreviciaus-ir-eugenijaus-gentvilo-63916266.jpg&f=1', 1),
     new User(5, true, "Viktorija Čmilytė-Nielsen", null, 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fg3.dcdn.lt%2Fimages%2Fpix%2F880x550%2Ft22SN928oOA%2Fviktorija-cmilyte-nielsen-75028384.jpg&f=1', 1),

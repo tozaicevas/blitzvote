@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Grid, Image } from "semantic-ui-react";
 import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
+import RightBar from "./RightBar/RightBar";
 
 const FeedGrid = ({ questions, filters }) => {
   filters.forEach(filter => {
@@ -25,7 +26,7 @@ const FeedGrid = ({ questions, filters }) => {
           ))}
         </Grid.Column>
         <Grid.Column width={3}>
-          <Image src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg" />
+            <RightBar />
         </Grid.Column>
       </Grid.Row>
     </Grid>

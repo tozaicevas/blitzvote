@@ -4,9 +4,15 @@ import { Card, Icon, Image } from "semantic-ui-react";
 const CandidateCard = ({ candidate }) => {
   return (
     <Card>
-      <Image src={candidate.photo} size="medium" style={{ height: "15em" }} />
+      <Image
+        src={candidate.photo}
+        size="medium"
+        style={{ height: "15em", cursor: "pointer" }}
+      />
       <Card.Content>
-        <Card.Header>{candidate.name}</Card.Header>
+        <Card.Header style={{ cursor: "pointer" }}>
+          {candidate.name}
+        </Card.Header>
         <Card.Meta>{candidate.subtitle}</Card.Meta>
       </Card.Content>
       <Card.Content extra>

@@ -4,19 +4,7 @@ import {Card, Feed, Image} from 'semantic-ui-react'
 
 
 const RightBar = ({candidates}) => {
-    const getCandidate = (id) => candidates.filter(c => c.id === id);
     const ago = () => Math.floor(Math.random() * 3) + 1  + " day ago";
-
-    const candidate1 = getCandidate(12)[0];
-    candidate1.answersCount = 241;
-    const candidate2 = getCandidate(6)[0];
-    candidate2.answersCount = 193;
-    const candidate3 = getCandidate(11)[0];
-    candidate3.answersCount = 121;
-    const candidate4 = getCandidate(9)[0];
-    candidate4.answersCount = 72;
-    const candidate5 = getCandidate(4)[0];
-    candidate5.answersCount = 46;
 
     return (
             <Card>
@@ -24,91 +12,24 @@ const RightBar = ({candidates}) => {
                     <Card.Header>Aktyviausieji kandidatai</Card.Header>
                 </Card.Content>
                 <Card.Content>
-                    <Feed>
-                        <Feed.Event>
-                            <Image
-                                src={candidate1.photo}
-                                style={{height:60, width:65, marginRight:5}}
-                                circular
-                            />
-                            <Feed.Content>
-                                <strong>{candidate1.name}</strong>
-                                <Feed.Date style={{marginTop:'2px'}} content={ago()} />
-                                <Feed.Summary>
-                                    Atsakė klausimų: {candidate1.answersCount}
-                                </Feed.Summary>
-                            </Feed.Content>
-                        </Feed.Event>
-                    </Feed>
-
-                    <Feed>
-                        <Feed.Event>
-                            <Image
-                                src={candidate2.photo}
-                                style={{height:60, width:65, marginRight:5}}
-                                circular
-                            />
-                            <Feed.Content>
-                                <strong>{candidate2.name}</strong>
-                                <Feed.Date style={{marginTop:'2px'}} content={ago()} />
-                                <Feed.Summary>
-                                    Atsakė klausimų: {candidate2.answersCount}
-                                </Feed.Summary>
-                            </Feed.Content>
-                        </Feed.Event>
-                    </Feed>
-
-                    <Feed>
-                        <Feed.Event>
-                            <Image
-                                src={candidate3.photo}
-                                style={{height:60, width:65, marginRight:5}}
-                                circular
-                            />
-                            <Feed.Content>
-                                <strong>{candidate3.name}</strong>
-                                <Feed.Date style={{marginTop:'2px'}} content={ago()} />
-                                <Feed.Summary>
-                                    Atsakė klausimų: {candidate3.answersCount}
-                                </Feed.Summary>
-                            </Feed.Content>
-                        </Feed.Event>
-                    </Feed>
-
-                    <Feed>
-                        <Feed.Event>
-                            <Image
-                                src={candidate4.photo}
-                                style={{height:60, width:65, marginRight:5}}
-                                circular
-                            />
-                            <Feed.Content>
-                                <strong>{candidate4.name}</strong>
-                                <Feed.Date style={{marginTop:'2px'}} content={ago()} />
-                                <Feed.Summary>
-                                    Atsakė klausimų: {candidate4.answersCount}
-                                </Feed.Summary>
-                            </Feed.Content>
-                        </Feed.Event>
-                    </Feed>
-
-                    <Feed>
-                        <Feed.Event>
-                            <Image
-                                src={candidate5.photo}
-                                style={{height:60, width:65, marginRight:5}}
-                                circular
-                            />
-                            <Feed.Content>
-                                <strong>{candidate5.name}</strong>
-                                <Feed.Date style={{marginTop:'2px'}} content={ago()} />
-                                <Feed.Summary>
-                                    Atsakė klausimų: {candidate5.answersCount}
-                                </Feed.Summary>
-                            </Feed.Content>
-                        </Feed.Event>
-                    </Feed>
-
+                    {candidates.map((candidate => (
+                        <Feed>
+                            <Feed.Event>
+                                <Image
+                                    src={candidate.photo}
+                                    style={{height:60, width:65, marginRight:5}}
+                                    circular
+                                />
+                                <Feed.Content>
+                                    <strong>{candidate.name}</strong>
+                                    <Feed.Date style={{marginTop:'2px'}} content={ago()} />
+                                    <Feed.Summary>
+                                        Atsakė klausimų: {candidate.answersCount}
+                                    </Feed.Summary>
+                                </Feed.Content>
+                            </Feed.Event>
+                        </Feed>
+                    )))}
                 </Card.Content>
             </Card>
 
@@ -117,8 +38,20 @@ const RightBar = ({candidates}) => {
 
 const mapStateToProps = state => ({
     candidates: state.users
-        .filter(user => user.isPolitician === true),
-    answers: state.answers
+        .filter(user => user.isPolitician)
+        .map(user => {
+            user.answersCount = state.answers
+                .filter(answer => answer.userId === user.id)
+                .length;
+            return user;
+        })
+        .sort((q1, q2) => {
+            const condition = q1.answersCount - q2.answersCount;
+            if (condition > 0) return -1;
+            if (condition < 0) return 1;
+            return 0;
+        })
+        .slice(0, 5)
 });
 
 

@@ -7,6 +7,6 @@ export default class Question {
     this.text = text;
     this.categories = categories;
     this.createdAt = createdAt;
-    this.points = Math.floor(Math.random() * 5);
+    this.points = 0;
   }
 }

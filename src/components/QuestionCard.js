@@ -23,11 +23,15 @@ const Answer = ({ answer }) => (
       <div
         style={{ marginLeft: "10px", display: "flex", flexDirection: "column" }}
       >
-        <b>{answer.user.name}</b>
+        <span>
+          <b>{answer.user.name}</b>
+          <i> ({answer.createdAt.fromNow()})</i>
+        </span>
         <i>{answer.user.party.title}</i>
       </div>
     </div>
     <div style={{ marginTop: "10px" }}>{answer.text}</div>
+    <div style={{ marginTop: '10px', cursor: 'pointer' }}><Icon name="fire" style={{ 'color': 'red' }}/>{Math.floor(Math.random() * 10)}</div>
   </div>
 );
 
@@ -110,7 +114,7 @@ class QuestionCard extends Component {
             {this.props.question.user.name
               ? ", " + this.props.question.user.subtitle
               : ""}
-            {" (" + this.props.question.createdAt.fromNow() + ")"}
+            <i> ({this.props.question.createdAt.fromNow()})</i>
           </Card.Meta>
           <Card.Description>{this.getAnswers()}</Card.Description>
         </Card.Content>

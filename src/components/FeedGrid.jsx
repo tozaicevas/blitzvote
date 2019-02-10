@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Grid, Image, Divider } from "semantic-ui-react";
+import { Grid, Divider } from "semantic-ui-react";
 import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
-import RightBar from "./RightBar/RightBar";
+import RightBar from "./RightBar";
 import NewQuestion from './NewQuestion';
 
 const FeedGrid = ({ questions, filters }) => {

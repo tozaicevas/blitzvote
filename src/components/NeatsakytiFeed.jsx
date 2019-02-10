@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Grid, Image } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
+import RightBar from "./RightBar";
 
-const NeatsakytiFeed = ({ questions, filters, answers }) => {
+const NeatsakytiFeed = ({ questions, filters }) => {
   filters.forEach(filter => {
     questions = questions.filter(filter.predicate);
   });
@@ -27,7 +28,7 @@ const NeatsakytiFeed = ({ questions, filters, answers }) => {
           ))}
         </Grid.Column>
         <Grid.Column width={3}>
-          <Image src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg" />
+            <RightBar />
         </Grid.Column>
       </Grid.Row>
     </Grid>

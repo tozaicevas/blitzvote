@@ -11,7 +11,6 @@ import {
   Segment,
   Sidebar,
   Visibility,
-  Search,
   Input
 } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";

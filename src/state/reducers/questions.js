@@ -33,10 +33,17 @@ const initialState = [
   new Question(
     5,
     3,
-    "Ar ES turėtų glaudžiau bendradarbiauti su Ukraina?",
-    [2],
+    "Ar palaikote sankcijas Rusijai, juk prekyba su priešu geriau nei jokios prekybos?",
+    [3],
     moment("2019-02-09T04:00:00")
-  )
+  ),
+  new Question(
+      6,
+      3,
+      "Kas svarbiau Lietuvos ar ES interesai?",
+      [5],
+      moment("2019-02-09T04:00:00")
+  ),
 ];
 
 export default function(state = initialState, action) {

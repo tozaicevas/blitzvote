@@ -16,17 +16,13 @@ const CandidateCard = ({ candidate }) => {
         <Card.Meta>{candidate.subtitle}</Card.Meta>
       </Card.Content>
       <Card.Content extra>
-        <a>
           <Icon name="question circle" />
           {Math.floor(Math.random() * 3) + 1} atsakyti klausimai
-        </a>
       </Card.Content>
       <Card.Content extra>
-        <a>
           <Icon name="phone volume" />
           Paskutinį kart aktyvus prieš {Math.floor(Math.random() * 9) + 1}{" "}
           valandas
-        </a>
       </Card.Content>
     </Card>
   );

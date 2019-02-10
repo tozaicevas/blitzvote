@@ -11,7 +11,8 @@ const CandidateCard = ({ candidate }) => {
       </Card.Content>
       <Card.Content extra>
         <a>
-          <Icon name="question circle" />3 atsakyti klausimai
+          <Icon name="question circle" />
+          {Math.floor(Math.random() * 3) + 1} atsakyti klausimai
         </a>
       </Card.Content>
       <Card.Content extra>

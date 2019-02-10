@@ -4,7 +4,7 @@ import { Card, Icon, Image } from "semantic-ui-react";
 const CandidateCard = ({ candidate }) => {
   return (
     <Card>
-      <Image src={candidate.photo} size="medium" />
+      <Image src={candidate.photo} size="medium" style={{ height: "15em" }} />
       <Card.Content>
         <Card.Header>{candidate.name}</Card.Header>
         <Card.Meta>{candidate.subtitle}</Card.Meta>
@@ -17,7 +17,8 @@ const CandidateCard = ({ candidate }) => {
       <Card.Content extra>
         <a>
           <Icon name="phone volume" />
-          Paskutinį kart aktyvus prieš 6 valandas
+          Paskutinį kart aktyvus prieš {Math.floor(Math.random() * 9) + 1}{" "}
+          valandas
         </a>
       </Card.Content>
     </Card>

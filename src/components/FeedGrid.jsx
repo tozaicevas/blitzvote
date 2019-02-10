@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Grid, Image } from "semantic-ui-react";
+import { Grid, Image, Divider } from "semantic-ui-react";
 import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
+import NewQuestion from "./NewQuestion";
 
 const FeedGrid = ({ questions, filters }) => {
   filters.forEach(filter => {
@@ -16,6 +17,8 @@ const FeedGrid = ({ questions, filters }) => {
           <LeftBar />
         </Grid.Column>
         <Grid.Column width={10}>
+          <NewQuestion />
+          <Divider />
           {questions.map(question => (
             <QuestionCard
               key={question.id}

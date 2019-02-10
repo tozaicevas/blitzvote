@@ -51,7 +51,10 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item active={this.props.activeLink === "/"}>
+                <Menu.Item
+                  onClick={() => this.props.clearFilters()}
+                  active={this.props.activeLink === "/"}
+                >
                   <Image
                     size="mini"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
@@ -162,9 +165,11 @@ MobileContainer.propTypes = {
   children: PropTypes.node
 };
 
-const ResponsiveContainer = ({ children, activeLink }) => (
+const ResponsiveContainer = ({ children, activeLink, clearFilters }) => (
   <div>
-    <DesktopContainer activeLink={activeLink}>{children}</DesktopContainer>
+    <DesktopContainer clearFilters={clearFilters} activeLink={activeLink}>
+      {children}
+    </DesktopContainer>
     <MobileContainer activeLink={activeLink}>{children}</MobileContainer>
   </div>
 );
@@ -174,7 +179,10 @@ ResponsiveContainer.propTypes = {
 };
 
 const HomepageLayout = props => (
-  <ResponsiveContainer activeLink={props.link}>
+  <ResponsiveContainer
+    clearFilters={props.onClearFilters}
+    activeLink={props.link}
+  >
     {props.children}
   </ResponsiveContainer>
 );
@@ -183,7 +191,11 @@ const mapStateToProps = state => ({
   link: state.router.location.pathname
 });
 
+const mapDispatchToProps = dispatch => ({
+  onClearFilters: () => dispatch({ type: "FILTER_CLEAR" })
+});
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(HomepageLayout);

@@ -2,7 +2,7 @@ import User from "../../models/User";
 
 const initialState = [
     // Noobai
-    new User(1, false, "Faustas Butkus", "Fains bicas xD", null, null),
+    new User(1, false, "Faustas Butkus", "Susirūpinęs pilietis", null, null),
     new User(2, false, "Tomas Zaicevas", "Programuotojas", null, null),
     new User(3, false, "Joris Medeisis", "Nusivylęs istorikas", null, null),
     // Libai

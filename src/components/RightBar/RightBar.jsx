@@ -8,7 +8,7 @@ const RightBar = ({candidates}) => {
     return (
             <Card>
                 <Card.Content>
-                    <Card.Header>Aktyviausi atsakynėtojai</Card.Header>
+                    <Card.Header>Aktyviausieji kandidatai</Card.Header>
                 </Card.Content>
                 <Card.Content>
                     {candidates.map((candidate, i) =>

@@ -76,7 +76,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                 </Container>
                 <Menu.Item position="right">
-                  <Button as="a" inverted={!fixed}>
+                  {/* <Button as="a" inverted={!fixed}>
                     Prisijungti
                   </Button>
                   <Button
@@ -86,7 +86,14 @@ class DesktopContainer extends Component {
                     style={{ marginLeft: "0.5em" }}
                   >
                     Registruotis
-                  </Button>
+                  </Button> */}
+                  <span>Faustas Butkus</span>
+                  <Button
+                    as="a"
+                    inverted={!fixed}
+                    primary={fixed}
+                    style={{ marginLeft: "0.5em" }}
+                  >Atsijungti</Button>
                 </Menu.Item>
               </Container>
             </Menu>

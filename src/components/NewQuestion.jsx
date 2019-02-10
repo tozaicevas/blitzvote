@@ -20,7 +20,7 @@ class NewQuestion extends Component {
 
     onAddCategory = (event) => {
         const selectedCatId = this.props.categories
-            .find(c => c.text == event.nativeEvent.target.querySelector('.text').innerText)
+            .find(c => c.text === event.nativeEvent.target.querySelector('.text').innerText)
             .value;
 
         this.setState(state => ({

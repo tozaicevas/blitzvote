@@ -1,6 +1,6 @@
 import React from 'react'
 import CandidateCard from "./CandidateCard";
-import {Card, Container, Divider, Header, Image} from 'semantic-ui-react'
+import {Card, Divider, Header, Image} from 'semantic-ui-react'
 import {connect} from "react-redux";
 
 const PartyCandidates = ({party, politicians}) => {

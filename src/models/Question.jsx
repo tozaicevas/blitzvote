@@ -1,12 +1,12 @@
 import moment from "moment";
 
 export default class Question {
-  constructor(id, userId, text, categories) {
+  constructor(id, userId, text, categories, createdAt = moment()) {
     this.id = id;
     this.userId = userId;
     this.text = text;
     this.categories = categories;
-    this.createdAt = moment();
+    this.createdAt = createdAt;
     this.points = 0;
   }
 }

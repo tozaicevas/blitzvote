@@ -1,17 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Grid, Image, Divider } from "semantic-ui-react";
+import { Grid, Image } from "semantic-ui-react";
 import QuestionCard from "./QuestionCard";
 import LeftBar from "./LeftBar";
-import RightBar from "./RightBar/RightBar";
-import NewQuestion from './NewQuestion';
 
-const FeedGrid = ({ questions, filters }) => {
+const NeatsakytiFeed = ({ questions, filters, answers }) => {
   filters.forEach(filter => {
     questions = questions.filter(filter.predicate);
   });
 
-  questions = questions.filter(question => question.answers.length);
+  questions = questions.filter(question => !question.answers.length);
 
   return (
     <Grid celled="internally">
@@ -20,8 +18,6 @@ const FeedGrid = ({ questions, filters }) => {
           <LeftBar />
         </Grid.Column>
         <Grid.Column width={10}>
-          <NewQuestion />
-          <Divider />
           {questions.map(question => (
             <QuestionCard
               key={question.id}
@@ -31,7 +27,7 @@ const FeedGrid = ({ questions, filters }) => {
           ))}
         </Grid.Column>
         <Grid.Column width={3}>
-          <RightBar />
+          <Image src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg" />
         </Grid.Column>
       </Grid.Row>
     </Grid>
@@ -59,10 +55,11 @@ const mapStateToProps = state => ({
       if (condition > 0) return -1;
       if (condition < 0) return 1;
       return 0;
-    })
+    }),
+  answers: state.answers
 });
 
 export default connect(
   mapStateToProps,
   null
-)(FeedGrid);
+)(NeatsakytiFeed);

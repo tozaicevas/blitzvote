@@ -10,7 +10,9 @@ import {
   Responsive,
   Segment,
   Sidebar,
-  Visibility
+  Visibility,
+  Search,
+  Input
 } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
@@ -68,6 +70,11 @@ class DesktopContainer extends Component {
                 <Menu.Item active={this.props.activeLink === "/candidates"}>
                   <NavLink to="/candidates">Kandidatai</NavLink>
                 </Menu.Item>
+                <Container fluid={true}>
+                  <Menu.Item>
+                    <Input icon="search" placeholder="Search..." />
+                  </Menu.Item>
+                </Container>
                 <Menu.Item position="right">
                   <Button as="a" inverted={!fixed}>
                     Prisijungti

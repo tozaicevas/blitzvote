@@ -1,8 +1,8 @@
 import React from "react";
-import FeedGrid from "../components/FeedGrid";
+import NeatsakytiFeed from "../components/NeatsakytiFeed";
 
 const NeatsakytiView = () => {
-  return <FeedGrid />;
+  return <NeatsakytiFeed />;
 };
 
 export default NeatsakytiView;

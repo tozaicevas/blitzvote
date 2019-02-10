@@ -67,8 +67,8 @@ class DesktopContainer extends Component {
                 <Menu.Item active={this.props.activeLink === "/neatsakyti"}>
                   <NavLink to="/neatsakyti">Neatsakyti</NavLink>
                 </Menu.Item>
-                <Menu.Item active={this.props.activeLink === "/candidates"}>
-                  <NavLink to="/candidates">Kandidatai</NavLink>
+                <Menu.Item active={this.props.activeLink === "/kandidatai"}>
+                  <NavLink to="/kandidatai">Kandidatai</NavLink>
                 </Menu.Item>
                 <Container fluid={true}>
                   <Menu.Item>

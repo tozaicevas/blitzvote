@@ -15,7 +15,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={MainView} />
-              <Route exact path="/candidates" component={CandidatesPage} />
+              <Route exact path="/kandidatai" component={CandidatesPage} />
               <Route exact path="/neatsakyti" component={NeatsakytiView} />
             </Switch>
           </Layout>

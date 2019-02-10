@@ -28,7 +28,7 @@ const RightBar = ({candidates}) => {
                         <Feed.Event>
                             <Image
                                 src={candidate1.photo}
-                                style={{height:50, width:60, marginRight:5}}
+                                style={{height:60, width:65, marginRight:5}}
                                 circular
                             />
                             <Feed.Content>
@@ -45,7 +45,7 @@ const RightBar = ({candidates}) => {
                         <Feed.Event>
                             <Image
                                 src={candidate2.photo}
-                                style={{height:50, width:60, marginRight:5}}
+                                style={{height:60, width:65, marginRight:5}}
                                 circular
                             />
                             <Feed.Content>
@@ -62,7 +62,7 @@ const RightBar = ({candidates}) => {
                         <Feed.Event>
                             <Image
                                 src={candidate3.photo}
-                                style={{height:50, width:60, marginRight:5}}
+                                style={{height:60, width:65, marginRight:5}}
                                 circular
                             />
                             <Feed.Content>
@@ -79,7 +79,7 @@ const RightBar = ({candidates}) => {
                         <Feed.Event>
                             <Image
                                 src={candidate4.photo}
-                                style={{height:50, width:60, marginRight:5}}
+                                style={{height:60, width:65, marginRight:5}}
                                 circular
                             />
                             <Feed.Content>
@@ -96,7 +96,7 @@ const RightBar = ({candidates}) => {
                         <Feed.Event>
                             <Image
                                 src={candidate5.photo}
-                                style={{height:50, width:60, marginRight:5}}
+                                style={{height:60, width:65, marginRight:5}}
                                 circular
                             />
                             <Feed.Content>

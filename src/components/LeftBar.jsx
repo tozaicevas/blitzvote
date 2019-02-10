@@ -4,7 +4,7 @@ import { List, Icon } from "semantic-ui-react";
 
 const SingleCategory = ({
   name,
-  iconName,
+  iconName, iconColor,
   questionAmount,
   onClick,
   styled
@@ -14,7 +14,7 @@ const SingleCategory = ({
       style={styled ? { backgroundColor: "#e5e5e5" } : {}}
       onClick={onClick}
     >
-      <Icon name={iconName} size="large" />
+      <Icon name={iconName} color={iconColor} size="large" />
       <List.Content>
         <List.Header>
           {name}
@@ -56,6 +56,7 @@ class LeftBar extends React.Component {
             key={category.id}
             name={category.title}
             iconName={category.icon}
+            iconColor={category.color}
             onClick={() => {
               this.setState({ currentCategoryId: category.id });
               this.props.onFilterCategory(category.id);

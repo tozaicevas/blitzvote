@@ -1,11 +1,11 @@
 import Category from "../../models/Category";
 
 const initialState = [
-  new Category(1, "Svietimas", "book"),
-  new Category(2, "Ekologija", "recycle"),
-  new Category(3, "Saugumas", "shield"),
-  new Category(4, "Technologijos", "computer"),
-  new Category(5, "Ekonomika", "money")
+  new Category(1, "Svietimas", "book", 'orange'),
+  new Category(2, "Ekologija", "recycle", 'green'),
+  new Category(3, "Saugumas", "shield", 'blue'),
+  new Category(4, "Technologijos", "computer", 'teal'),
+  new Category(5, "Ekonomika", "money", 'olive')
 ];
 
 export default function(state = initialState, action) {

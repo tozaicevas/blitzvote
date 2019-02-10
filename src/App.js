@@ -6,6 +6,7 @@ import "./App.css";
 import MainView from "./views/Main";
 import CandidatesPage from "./components/candidates/CandidatesPage";
 import NeatsakytiView from "./views/Neatsakyti";
+import CandidatePage from "./components/CandidatePage";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={MainView} />
               <Route exact path="/kandidatai" component={CandidatesPage} />
+              <Route exact path="/kandidatai/:id" component={CandidatePage} />
               <Route exact path="/neatsakyti" component={NeatsakytiView} />
             </Switch>
           </Layout>
